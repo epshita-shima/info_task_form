@@ -4,7 +4,7 @@ import InsertInfo from './components/AddInfoDetails/InsertInfo';
 
 function App() {
   return (
-    <div>
+    <div className='bg-white'>
       <InsertInfo />
     </div>
   );
