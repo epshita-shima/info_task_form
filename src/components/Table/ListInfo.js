@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ListInfo = ({ data }) => {
-    console.log(data)
+    const [searchName, setSearchName] = useState('')
+    const searchData = data.filter((x) => x.name.includes(searchName))
     return (
         <div className='mt-4 mb-8'>
             <div class="overflow-x-auto">
+                <input type="text" name='name' className='input border-black' onChange={(e) => setSearchName(e.target.value)} />
                 <table class="table w-full bordered">
                     <thead>
                         <tr>
@@ -37,7 +39,7 @@ const ListInfo = ({ data }) => {
                     </thead>
                     <tbody>
                         {
-                            data?.map((info, index) =>
+                            searchData?.map((info, index) =>
                                 <tr>
                                     <th>{index + 1}</th>
                                     <td>{info.name}</td>
